@@ -10,8 +10,8 @@ namespace Operations.Category
             //TRANSFORM
             List<CategoryDIM> categoryDIMs = categoryEntities.Select(category => new CategoryDIM
             {
-                Id_Categoria = category.Id_Categoria,
-                Nombre = category.Nombre,
+                Id_Category = category.Id_Category,
+                Name = category.Name,
             }).ToList();
             //LOAD
             foreach (var categoryDim in categoryDIMs)

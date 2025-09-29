@@ -6,10 +6,10 @@ namespace Category
     {
         public CategoryDIM()
         {
-            this.MDataMapper = new BDConnection().BDDestino;
+            this.MDataMapper = new BDConnection().DBDestino;
         }
         [PrimaryKey(Identity = false)]
-        public int? Id_Categoria { get; set; }
-        public string? Nombre { get; set; }
+        public int? Id_Category { get; set; }
+        public string? Name { get; set; }
     }
 }

@@ -6,11 +6,11 @@ namespace Category
     {
         public CategoryEntity()
         {
-            this.MDataMapper = new BDConnection().BDOrigen;
+            this.MDataMapper = new BDConnection().DBOrigen;
         }
         [PrimaryKey(Identity = true)]
-        public int? Id_Categoria { get; set; }
-        public string? Nombre { get; set; }
+        public int? Id_Category { get; set; }
+        public string? Name { get; set; }
         public DateTime? UpdateAt { get; set; }
         public DateTime? CreatedAt { get; set; }
     }
