@@ -1,0 +1,7 @@
+namespace Category
+{
+    class CategoryEntity
+    {
+
+    }
+}
