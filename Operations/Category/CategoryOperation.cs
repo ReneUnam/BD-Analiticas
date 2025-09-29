@@ -6,16 +6,19 @@ namespace Operations.Category
         public void Excute()
         {
             //EXTRACT
-            List<CategoryEntity> categoryEntities = new CategoryEntity().Get<CategoryEntity>();
+            List<Categorias> categoryEntities = new Categorias().Get<Categorias>();
             //TRANSFORM
-            List<CategoryDIM> categoryDIMs = categoryEntities.Select(category => new CategoryDIM
+            List<CategoriasDIM> categoryDIMs = categoryEntities.Select(category => new CategoriasDIM
             {
-                Id_Category = category.Id_Category,
-                Name = category.Name,
+                IdCategoria = category.IdCategoria,
+                Nombre = category.Nombre,
+                Descripcion = category.Descripcion,
+                Estado = category.Estado
             }).ToList();
             //LOAD
             foreach (var categoryDim in categoryDIMs)
             {
+                Console.WriteLine($"{categoryDim.IdCategoria} - {categoryDim.Nombre}");
                 categoryDim.Save();
             }
         }

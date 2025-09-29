@@ -2,15 +2,17 @@ using APPCORE;
 using BusinessLogic.Connection;
 namespace Category
 {
-    class CategoryEntity : EntityClass
+    class Categorias : EntityClass
     {
-        public CategoryEntity()
+        public Categorias()
         {
             this.MDataMapper = new BDConnection().DBOrigen;
         }
         [PrimaryKey(Identity = true)]
-        public int? Id_Category { get; set; }
-        public string? Name { get; set; }
+        public int? IdCategoria { get; set; }
+        public string? Nombre { get; set; }
+        public string? Descripcion { get; set; }
+        public bool? Estado { get; set; }
         public DateTime? UpdateAt { get; set; }
         public DateTime? CreatedAt { get; set; }
     }
