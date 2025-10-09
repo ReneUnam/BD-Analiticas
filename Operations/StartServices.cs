@@ -1,4 +1,5 @@
 ﻿using Operations.Category;
+using Operations.Usuarios;
 
 namespace Operations;
 
@@ -9,7 +10,10 @@ public class StartServices
         try
         {
             new CategoryOperation().Excute();
+            new UsuarioOperation().Excute();
             return true;
+
+         
         }
         catch (System.Exception ex)
         {
@@ -17,3 +21,4 @@ public class StartServices
         }
     }
 }
+
