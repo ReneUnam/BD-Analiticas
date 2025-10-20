@@ -9,11 +9,10 @@ public class StartServices
     {
         try
         {
-            new CategoryOperation().Excute();
+            // new CategoryOperation().Excute();
+            
             new UsuarioOperation().Excute();
             return true;
-
-         
         }
         catch (System.Exception ex)
         {
