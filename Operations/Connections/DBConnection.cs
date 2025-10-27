@@ -8,8 +8,8 @@ namespace BusinessLogic.Connection
         public WDataMapper? DBDestino { get; set; }
         public BDConnection()
         {
-            DBOrigen = SqlADOConexion.BuildDataMapper(".", "sa", "Rambito12", "FARMACIAJOSHUAV1");
-            DBDestino = SqlADOConexion.BuildDataMapper(".", "sa", "Rambito12", "FARMACIAJOSHUA_DESTINO");
+            DBOrigen = SqlADOConexion.BuildDataMapper(".", "sa", "Rambito12", "FJOSHUA_NOW_V1");
+            DBDestino = SqlADOConexion.BuildDataMapper(".", "sa", "Rambito12", "FJOSHUA_NOW_V1_DESTINO");
             DBDestino?.GDatos.TestConnection();
             DBOrigen?.GDatos.TestConnection();
         }

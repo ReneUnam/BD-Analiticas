@@ -1,5 +1,3 @@
-using APPCORE;
-using BusinessLogic.Connection;
 using Units;
 namespace Operations.Units
 {
@@ -9,9 +7,8 @@ namespace Operations.Units
         {
             // EXTRACT
             List<Unidades> unidades = new Unidades().Get<Unidades>();
-
             // TRANSFORM
-            var unidadesDIMs = unidades.Select(u => new Unidades
+            List<UnidadesDIM> unidadesDIMs = unidades.Select(u => new UnidadesDIM
             {
                 IdUnidad = u.IdUnidad,
                 Nombre = u.Nombre,

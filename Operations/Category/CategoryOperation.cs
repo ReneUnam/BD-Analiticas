@@ -3,7 +3,7 @@ namespace Operations.Category
 {
     public class CategoryOperation
     {
-        public void Excute()
+        public void Execute()
         {
             //EXTRACT
             List<Categorias> categoryEntities = new Categorias().Get<Categorias>();
@@ -13,7 +13,6 @@ namespace Operations.Category
                 IdCategoria = category.IdCategoria,
                 Nombre = category.Nombre,
                 Descripcion = category.Descripcion,
-                Estado = category.Estado
             }).ToList();
             //LOAD
             foreach (var categoryDim in categoryDIMs)

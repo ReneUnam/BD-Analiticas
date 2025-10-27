@@ -10,8 +10,8 @@ namespace Units
         }
 
         [PrimaryKey(Identity = true)]
-        public int IdUnidad { get; set; }
-        public string Nombre { get; set; }
-        public string Abreviatura { get; set; }
+        public int? IdUnidad { get; set; }
+        public string? Nombre { get; set; }
+        public string? Abreviatura { get; set; }
     }
 }
