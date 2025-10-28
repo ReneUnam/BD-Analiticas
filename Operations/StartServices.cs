@@ -17,9 +17,9 @@ public class StartServices
             // await Task.Run(() => new UnitsOperation().Execute());
             // await Task.Run(() => new LaboratoryOperation().Execute());
             // await Task.Run(() => new CategoryOperation().Execute());
+            // await Task.Run(() => new UsersOperation().Execute());
 
-            // await Task.Run(() => new ProductoOperation().Execute());
-            await Task.Run(() => new UsersOperation().Execute());
+            await Task.Run(() => new ProductoOperation().Execute());
             return true;
         }
         catch (System.Exception ex)
