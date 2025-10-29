@@ -6,9 +6,10 @@ namespace Operations.Category
     {
         public void Execute()
         {
+            DateTime startTime = DateTime.Now;
             //EXTRACT
             List<Categorias> categoryEntities = new Categorias().Where<Categorias>(
-                FilterData.Greater("Updated_At", DateOLAPOperation.GetLastUpdatedate())
+                FilterData.Greater("Updated_At", HistoricDateOLAPOperation.GetLastUpdatedate())
             );
             // categoryEntities = new Categorias().Get<Categorias>();
             //TRANSFORM
@@ -18,17 +19,23 @@ namespace Operations.Category
                 Nombre = category.Nombre,
                 Descripcion = category.Descripcion,
             }).ToList();
+
             //LOAD
+            int registeredRows = 0;
             foreach (var categoryDim in categoryDIMs)
             {
                 if (categoryDim.Exists())
                     continue;
                 else
+                {
                     categoryDim.Save();
-                    DateOLAPOperation.UpdateLastUpdateDate(DateTime.Now);
-                    
+                    registeredRows++;
+                }
+
                 Console.WriteLine($"{categoryDim.IdCategoria} - {categoryDim.Nombre}");
             }
+            DateTime endTime = DateTime.Now;
+            HistoricDateOLAPOperation.UpdateLastUpdateDate(startTime, endTime, registeredRows);
 
         }
     }

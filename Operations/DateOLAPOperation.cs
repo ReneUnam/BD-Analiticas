@@ -11,9 +11,6 @@ namespace Operations
         private static readonly string _connectionString = _dataMapper.GDatos.ConexionString;
         private const string _processName = "CargaGeneralDW";
 
-        /// <summary>
-        /// Obtiene la última fecha en que se ejecutó el proceso ETL.
-        /// </summary>
         public static DateTime GetLastUpdatedate()
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -37,9 +34,6 @@ namespace Operations
             return DateTime.Parse("2025-01-01");
         }
 
-        /// <summary>
-        /// Actualiza la fecha de última ejecución al finalizar el ETL.
-        /// </summary>
         public static void UpdateLastUpdateDate(DateTime endTime)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
