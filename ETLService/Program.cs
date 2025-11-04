@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 await new StartServices().StartServicesApp();
 Console.WriteLine("ETL terminado. Presiona cualquier tecla para iniciar web...");
-Console.ReadKey();
+//Console.ReadKey();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
