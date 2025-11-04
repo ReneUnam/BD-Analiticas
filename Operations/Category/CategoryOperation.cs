@@ -24,8 +24,13 @@ namespace Operations.Category
             int registeredRows = 0;
             foreach (var categoryDim in categoryDIMs)
             {
-                if (categoryDim.Exists())
-                    continue;
+                var existingCategory = new CategoriasDIM().Find<CategoriasDIM>(
+                    FilterData.Equal("IdCategoria", categoryDim.IdCategoria)
+                );
+                if (existingCategory != null)
+                {
+                    categoryDim.Update();
+                }
                 else
                 {
                     categoryDim.Save();
