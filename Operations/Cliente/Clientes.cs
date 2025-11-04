@@ -1,17 +1,18 @@
 ﻿using APPCORE;
 using BusinessLogic.Connection;
-namespace Cliente
+namespace Customer
 {
-    class Cliente : EntityClass
+    class Clientes : EntityClass
     {
-        public Cliente()
+        public Clientes()
         {
             this.MDataMapper = new BDConnection().DBOrigen;
         }
         [PrimaryKey(Identity = true)]
         public int? IdCliente { get; set; }
         public string? Nombre { get; set; }
-        public string? Descripcion { get; set; }
-        public bool? Estado { get; set; }
+        public string? Apellido { get; set; }
+        public DateTime? Created_At { get; set; }
+        public DateTime? Updated_At { get; set; }
     }
 }
