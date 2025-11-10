@@ -15,10 +15,11 @@ namespace Operations.Sales
     {
         public void Execute()
         {
+            var startTime = DateTime.Now;
             Console.WriteLine("=== Iniciando ETL de Hechos de Venta ===");
 
             // Obtener fecha de la última carga
-            var lastUpdate = DateOLAPOperation.GetLastUpdatedate();
+            var lastUpdate = HistoricDateOLAPOperation.GetLastUpdatedate();
 
             // EXTRAER datos del OLTP (solo los nuevos desde la última carga)
             var query = new SalesFactQuery { Updated_At = lastUpdate };
@@ -27,7 +28,7 @@ namespace Operations.Sales
             if (sourceRows.Count == 0)
             {
                 Console.WriteLine("No hay nuevas ventas para cargar.");
-                DateOLAPOperation.UpdateLastUpdateDate(DateTime.Now);
+                HistoricDateOLAPOperation.UpdateLastUpdateDate(startTime, DateTime.Now, 0);
                 return;
             }
 
@@ -92,7 +93,7 @@ namespace Operations.Sales
                 f.Save();
 
             // Actualizar fecha de última carga
-            DateOLAPOperation.UpdateLastUpdateDate(DateTime.Now);
+            HistoricDateOLAPOperation.UpdateLastUpdateDate(startTime, DateTime.Now, facts.Count);
 
             Console.WriteLine($"Cargadas {facts.Count} filas nuevas en FactVentas.");
         }

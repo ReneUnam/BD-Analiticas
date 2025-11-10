@@ -1,0 +1,90 @@
+[ 
+    { 
+    "id": 1, 
+    "product": "Bocina Bluetooth Boom", 
+    "category": "Audio", 
+    "year": 2023, 
+    "month": 11, 
+    "quarter": "Cuarto", 
+    "units_sold": 155, 
+    "unit_price": 1021.0, 
+    "total_sale": 158255.0 
+    }, 
+    { 
+        "id": 2, 
+        "product": "Disco SSD 1TB", 
+        "category": "Almacenamiento", 
+        "year": 2023, 
+        "month": 8, 
+        "quarter": "Tercero", 
+        "units_sold": 97, 
+        "unit_price": 343.12, 
+        "total_sale": 33282.64 
+    }, 
+    { 
+        "id": 3, 
+        "product": "Monitor UltraWide 34\"", 
+        "category": "Electrónica", 
+        "year": 2024, 
+        "month": 12, 
+        "quarter": "Cuarto", 
+        "units_sold": 152, 
+        "unit_price": 1179.58, 
+        "total_sale": 179296.16 
+    }, 
+    { 
+        "id": 4, 
+        "product": "Smart TV 55\"", 
+        "category": "Electrónica", 
+        "year": 2023, 
+        "month": 10, 
+        "quarter": "Cuarto", 
+        "units_sold": 62, 
+        "unit_price": 45.66, 
+        "total_sale": 2830.92 
+    }, 
+    { 
+        "id": 5, 
+        "product": "Silla Ergonómica Pro", 
+        "category": "Muebles", 
+        "year": 2025, 
+        "month": 7, 
+        "quarter": "Tercero", 
+        "units_sold": 154, 
+        "unit_price": 36.6, 
+        "total_sale": 5636.4 
+    }, 
+    { 
+        "id": 6, 
+        "product": "Mouse Gamer X9", 
+        "category": "Accesorios", 
+        "year": 2023, 
+        "month": 9, 
+        "quarter": "Tercero", 
+        "units_sold": 165, 
+        "unit_price": 1182.14, 
+        "total_sale": 195053.1 
+    }, 
+    { 
+        "id": 7, 
+        "product": "Silla Ergonómica Pro", 
+        "category": "Muebles", 
+        "year": 2023, 
+        "month": 7, 
+        "quarter": "Tercero", 
+        "units_sold": 73, 
+        "unit_price": 1640.28, 
+        "total_sale": 119740.44 
+    }, 
+    { 
+        "id": 8, 
+        "product": "Lámpara LED Inteligente", 
+        "category": "Hogar", 
+        "year": 2025, 
+        "month": 10, 
+        "quarter": "Cuarto", 
+        "units_sold": 19, 
+        "unit_price": 1145.26, 
+        "total_sale": 21759.94 
+    }
+] 
