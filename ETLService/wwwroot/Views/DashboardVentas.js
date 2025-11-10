@@ -1,4 +1,4 @@
-import { WTableDynamicComp, WttTableDynamicComp } from '../WDevCore/WComponents/WTableDynamic.js';
+import { WTableDynamicComp} from '../WDevCore/WComponents/WTableDynamic.js';
 import { ModelProperty } from '../WDevCore/WModules/CommonModel.js';
 
 window.onload = async () => {
@@ -32,7 +32,7 @@ window.onload = async () => {
     }
 
     const TableConfigG ={
-        DataSet: data,
+        Dataset: data,
         EvalValue: "total_sale",
         AttNameEval: "category",
         groupParams: ["year"],
