@@ -1,9 +1,10 @@
 using Operations;
-
+using Operations.Sales;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
+builder.Services.AddScoped<SalesFactDashboardQuery>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRazorPages();
 
