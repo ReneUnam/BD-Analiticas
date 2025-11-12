@@ -21,6 +21,9 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 await new StartServices().StartServicesApp();
 
+Console.WriteLine("Servicios Iniciados. Presione una tecla para continuar...");
+Console.ReadKey();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -25,6 +25,7 @@ public class StartServices
             // await Task.Run(() => new CustomerOperation().Execute());
             // await Task.Run(() => new TimeOperation().Execute());
             // await Task.Run(() => new SalesFactOperation().Execute());
+            await Task.Run(() => new Supplier.SupplierOperation().Execute());
             return true;
         }
         catch (System.Exception ex)
