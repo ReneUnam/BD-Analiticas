@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
 builder.Services.AddScoped<SalesFactDashboardQuery>();
+builder.Services.AddTransient<Operations.Purchases.PurchasesFactDashboardQuery>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRazorPages();
 
