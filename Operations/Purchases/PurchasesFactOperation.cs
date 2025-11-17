@@ -2,7 +2,6 @@ using Producto;
 using Users;
 using Supplier;
 using System.Globalization;
-using APPCORE;
 
 namespace Operations.Purchases
 {
@@ -32,7 +31,7 @@ namespace Operations.Purchases
             var prodLookup = productos
                 .Where(p => p.IdProductoOLTP.HasValue)
                 .ToDictionary(p => p.IdProductoOLTP!.Value, p => p);
-
+            
             var userLookup = usuarios
                 .Where(u => u.IdUsuario.HasValue)
                 .ToDictionary(u => u.IdUsuario!.Value, u => u);
@@ -40,7 +39,7 @@ namespace Operations.Purchases
             var provLookup = proveedores
                 .Where(p => p.IdProveedor.HasValue)
                 .ToDictionary(p => p.IdProveedor!.Value, p => p);
-
+            
             var facts = new List<FactCompras>();
             foreach (var s in sourceRows)
             {
@@ -91,43 +90,16 @@ namespace Operations.Purchases
                 facts.Add(fact);
             }
 
-            // CARGAR (insertar o actualizar en el DW)
+            // CARGAR (insertar en el DW)
             foreach (var f in facts)
             {
-                // *** MODIFICACIÓN CLAVE: Buscamos por la CLAVE COMPUESTA ***
-                var existingFact = new FactCompras().Find<FactCompras>(
-                    FilterData.And(
-                        FilterData.Equal("Fecha_Key", f.Fecha_Key),
-                        FilterData.Equal("Producto_Key", f.Producto_Key),
-                        FilterData.Equal("Usuario_Key", f.Usuario_Key),
-                        FilterData.Equal("Proveedor_Key", f.Proveedor_Key),
-                        FilterData.Equal("IdDetalleCompra_OLTP", f.IdDetalleCompra_OLTP) // Asumo que esta es la 5ta clave
-                    )
-                );
-
-                if (existingFact != null)
-                {
-                    // El registro existe, por lo tanto, actualizamos (Update).
-
-                    // No es necesario actualizar las claves de dimensión si no cambian,
-                    // solo las medidas (metrics/facts) y atributos.
-                    existingFact.Cantidad = f.Cantidad;
-                    existingFact.Subtotal = f.Subtotal;
-                    existingFact.Total = f.Total;
-
-                    // Llamamos a Update sobre la instancia existente.
-                    existingFact.Update();
-                }
-                else
-                {
-                    // El registro es nuevo, por lo tanto, insertamos (Insert).
-                    f.Save();
-                }
+                f.Save();
             }
 
             // Actualizar fecha de última carga
-            Console.WriteLine($"Cargadas {facts.Count} filas nuevas en FactCompras.");
             HistoricDateOLAPOperation.UpdateLastUpdateDate(startTime, DateTime.Now, facts.Count);
+
+            Console.WriteLine($"Cargadas {facts.Count} filas nuevas en FactCompras.");
         }
     }
 }

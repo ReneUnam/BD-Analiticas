@@ -1,6 +1,6 @@
 import { WTableDynamicComp} from '../WDevCore/WComponents/WTableDynamic.js';
 import { ModelProperty } from '../WDevCore/WModules/CommonModel.js';
-window.onload = async () => {
+window.addEventListener("load", async () => {
 
     const dataPromise = await fetch("/SalesFact/GetAggregatedSales");
     const data = await dataPromise.json();
@@ -29,4 +29,4 @@ window.onload = async () => {
 
     const WTableReport = new WTableDynamicComp(TableConfigG);
     app.append(WTableReport);
-}
+});
